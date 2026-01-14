@@ -1,0 +1,21 @@
+#name{
+    color: white;
+    font-weight: 700; /* bold */
+}
+
+#about {
+    color: white;
+    font-weight: 700;
+}
+
+#portrait {
+    float: right;
+}
+
+.paragraphs {
+    color: whitesmoke;
+}
+
+#body {
+    background-color: rgb(26, 23, 23);
+}

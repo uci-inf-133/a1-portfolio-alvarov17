@@ -1,21 +1,99 @@
-#name{
-    color: white;
-    font-weight: 700; /* bold */
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-#about {
+.a-body
+{
+    min-height: 100vh;
+    background-color: rgb(26, 23, 23);
+}
+
+.a-container
+{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bubbles
+{
+    position: relative;
+    display: flex;
+    z-index: -99999999;
+}
+
+.bubbles span
+{
+    position:relative;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px rgb(139, 67, 67), 0 0 50px rgb(255, 50, 50);
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s / var(--i));
+}
+
+.name{
+    color: white;
+    text-align: center;
+    font-weight: 700; /* bold */
+    margin: 0;
+}
+
+.about {
     color: white;
     font-weight: 700;
-}
-
-#portrait {
-    float: right;
 }
 
 .paragraphs {
     color: whitesmoke;
 }
 
-#body {
-    background-color: rgb(26, 23, 23);
+.button-container {
+    position:absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#title {
+    display: block;
+    margin: auto;
+}
+
+#top {
+    position: relative;
+    padding: 20px;
+}
+
+
+.btn-group.button-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+
+.bubbles span:nth-child(even)
+{
+    background-color: rgba(111, 180, 220, 0.952);
+     border-radius: 50%;
+    box-shadow: 0 0 0 10px rgb(79, 88, 93), 0 0 50px rgba(111, 180, 220, 0.952);
+}
+
+@keyframes animate
+{
+    0%
+    {
+        transform: translateY(100vh) scale(0);
+    }
+    100%
+    {
+        transform: translateY(-10vh) scale(1);
+    }
 }

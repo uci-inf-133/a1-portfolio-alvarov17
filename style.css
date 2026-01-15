@@ -5,6 +5,16 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: tech;
+    src: url(fonts/Audiowide-Regular.ttf);
+}
+
+@font-face {
+    font-family: anarchy;
+    src: url(fonts/Anarchy.ttf);
+}
+
 .a-body
 {
     min-height: 100vh;
@@ -47,18 +57,25 @@
     animation-duration: calc(125s / var(--i));
 }
 
+.add-font
+{
+    font-family: tech;
+}
+
 .name
 {
     color: white;
     text-align: center;
     font-weight: 700; /* bold */
     margin: 0;
+    font-family: tech;
 }
 
 .quote
 {
     color: white;
     font-weight: 700;
+    font-family: tech;
 }
 
 .paragraphs 
@@ -116,7 +133,8 @@
 {
 flex: 1;
 color: white;
-flex-shrink: 0
+flex-shrink: 0;
+font-family: tech;
 }
 
 .about-text h2 

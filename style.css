@@ -147,24 +147,39 @@ color: white;
 .about-text 
 {
 flex: 1;
+padding-left: 2rem;
+border-left: 2px solid #ccc;
+}
+
+.text-rest
+{
+color: white;
+font-family: tech;
+flex: 1;
 padding-right: 2rem;
 border-right: 2px solid #ccc;
 }
 
-.about-image 
-{
-flex: 1;
-padding-left: 2rem;
+.about-image {
+  flex: 1;                   /* fills remaining horizontal space */
+  display: flex;
+  justify-content: center;   /* centers the image horizontally */
+  align-items: center;       /* centers vertically if needed */
+  object-fit: crop;            /* optional spacing around the image */
 }
 
-
-.about-image img 
-{
-max-width: 250px;
-width: 100%;
-border-radius: 12px;
-object-fit: cover;
+.about-image img {
+  width: auto;   /* keep natural width */
+  height: auto;  /* keep natural height */
+  max-width: 100%; /* prevent image from overflowing container */
+  display: block;
+  border-radius: 5px;
 }
+
+section.about {
+    transform: translateX(-45px); /* moves left 10px */
+}
+  
 
 .divider 
 {

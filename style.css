@@ -37,25 +37,66 @@
     overflow:scroll;
 }
 
-.bubbles
-{
-    position: relative;
-    display: flex;
-    z-index: -99999999;
+.bubbles {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
 }
 
-.bubbles span
-{
-    position:relative;
-    width: 30px;
-    height: 30px;
-    background-color: red;
-    margin: 0 4px;
+.bubbles span {
+    position: absolute;
+    bottom: -40px;
+    width: calc(10px + var(--i) * 1px);
+    height: calc(10px + var(--i) * 1px);
     border-radius: 50%;
-    box-shadow: 0 0 0 10px rgb(139, 67, 67), 0 0 50px rgb(255, 50, 50);
-    animation: animate 15s linear infinite;
-    animation-duration: calc(125s / var(--i));
+    left: var(--left);
+    animation: rise calc(120s / var(--i)) linear infinite;
 }
+
+.bubbles span:nth-child(odd) {
+    background-color: red;
+    box-shadow: 0 0 0 10px rgb(139, 67, 67), 0 0 50px rgb(255, 50, 50);
+}
+
+.bubbles span:nth-child(even) {
+    background-color: rgba(111, 180, 220, 0.95);
+    box-shadow: 0 0 0 10px rgb(79, 88, 93), 0 0 50px rgba(111, 180, 220, 0.95);
+}
+
+.text-box {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white; 
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+
+@keyframes rise {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    25% {
+        transform: translate(5px, -25vh);
+    }
+    50% {
+        transform: translate(-5px, -50vh);
+    }
+    75% {
+        transform: translate(3px, -75vh);
+    }
+    100% {
+        transform: translate(0, -110vh);
+        opacity: 0;
+    }
+}
+
 
 .add-font
 {
@@ -110,21 +151,11 @@
     right: 20px;
 }
 
-
-.bubbles span:nth-child(even)
-{
-    background-color: rgba(111, 180, 220, 0.952);
-     border-radius: 50%;
-    box-shadow: 0 0 0 10px rgb(79, 88, 93), 0 0 50px rgba(111, 180, 220, 0.952);
-}
-
-
-
 .about 
 {
     display: flex;
     align-items: center;
-    gap: 3rem;          /* controls spacing cleanly */
+    gap: 3rem;
     padding: 3rem;
     padding-left: 9rem;
 }
@@ -161,23 +192,23 @@ border-right: 2px solid #ccc;
 }
 
 .about-image {
-  flex: 1;                   /* fills remaining horizontal space */
+  flex: 1;
   display: flex;
-  justify-content: center;   /* centers the image horizontally */
-  align-items: center;       /* centers vertically if needed */
-  object-fit: crop;            /* optional spacing around the image */
+  justify-content: center;
+  align-items: center;
+  object-fit: crop;
 }
 
 .about-image img {
-  width: auto;   /* keep natural width */
-  height: auto;  /* keep natural height */
-  max-width: 100%; /* prevent image from overflowing container */
+  width: auto;
+  height: auto;
+  max-width: 100%;
   display: block;
   border-radius: 5px;
 }
 
 section.about {
-    transform: translateX(-45px); /* moves left 10px */
+    transform: translateX(-45px);
 }
   
 
@@ -229,7 +260,7 @@ box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 
 .email-btn:hover i 
 {
-color: #0d6efd;        /* Bootstrap primary blue */
+color: #0d6efd;
 transform: scale(1.15);
 }
 
@@ -250,16 +281,50 @@ border-radius: 0.25rem;
 font-size: 0.7rem;
 margin-bottom: 0.2rem;
 }
+
+.tech-icon 
+{
+    width: 175px;
+    height: auto;
+    padding-bottom: 10px;
+    padding-top: 20px;
+}
+
+@view-transition {
+    navigation: auto;
+}
+  
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.5s; 
+    animation-timing-function: ease-in-out;
+  }
+
+.carousel-wrapper {
+    width: 1000px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+}
+
+.carousel-img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+
+@media (max-width: 768px) {
+.carousel-img {
+    width: 90%;
+    height: auto;
+}
+}
   
 
-@keyframes animate
-{
-    0%
-    {
-        transform: translateY(100vh) scale(0);
-    }
-    100%
-    {
-        transform: translateY(-10vh) scale(1);
+@media (max-width: 768px) {
+    .carousel-wrapper {
+        width: 100%;
     }
 }
